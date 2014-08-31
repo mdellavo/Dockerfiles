@@ -8,8 +8,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y dist-upgrade
 
-RUN apt-get -y install xpra xdm fluxbox xvfb pwgen xserver-xephyr sudo
+RUN apt-get -y install xpra xdm fluxbox xvfb pwgen xserver-xephyr sudo vim
 
 ADD start.sh /start.sh
 
-cmd ["/bin/bash", "/start.sh"]
+cmd ["/bin/bash"]
