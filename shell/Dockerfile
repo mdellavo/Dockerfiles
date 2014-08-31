@@ -6,7 +6,9 @@ MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 RUN apt-get update
 RUN apt-get -y dist-upgrade
 
-RUN apt-get -y install tmux irssi emacs python python-pip
+RUN apt-get -y install tmux irssi emacs python python-pip curl
+
+RUN pip install virtualenv virtualenv-wrapper
 
 RUN curl -L http://git.io/epre | sh
 
