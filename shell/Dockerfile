@@ -9,4 +9,5 @@ RUN apt-get -y install tmux irssi emacs python python-pip curl vim git
 
 RUN pip install virtualenv virtualenvwrapper
 
-ADD local.sh /local.sh
+ADD shell.sh /start.d/shell
+RUN chmod +x /start.d/shell

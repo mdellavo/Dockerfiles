@@ -1,4 +1,4 @@
-#!/bin/bas
+#!/bin/bash
 
 set -x
 
@@ -9,10 +9,11 @@ useradd -m "${USER}" -p `mkpasswd ${PASSWORD}`
 usermod -G sudo "${USER}"
 echo "User: ${USER} / Password: ${PASSWORD}"
 
-if [ -x "/local.sh" ];
-then
-    /local.sh
-fi
+echo "Run parts"
+ls /start.d/
+run-parts -v /start.d/
 
-#mkdir /var/run/sshd
-#restart ssh
+echo "Starting ssh..."
+mkdir /var/run/sshd
+
+/usr/sbin/sshd -D

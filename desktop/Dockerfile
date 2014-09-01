@@ -17,6 +17,5 @@ RUN echo X11Forwarding yes >> /etc/ssh/ssh_config
 # Fix PAM login issue with sshd
 RUN sed -i 's/session    required     pam_loginuid.so/#session    required     pam_loginuid.so/g' /etc/pam.d/sshd
 
-ADD start.sh /
-
-CMD ["/bin/bash", "/start.sh"]
+ADD desktop.sh /start.d/desktop
+RUN chmod +x /start.d/desktop

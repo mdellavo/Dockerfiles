@@ -8,7 +8,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y dist-upgrade
 
-RUN apt-get -y install openssh-server sudo pwgen whois
+RUN apt-get -y install openssh-server sudo pwgen whois debianutils
+
+RUN mkdir /start.d
 
 ADD start.sh /start.sh
 
