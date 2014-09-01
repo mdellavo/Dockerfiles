@@ -1,15 +1,12 @@
 # shell Dockerfile
 
-FROM ubuntu:14.04
+FROM mdellavo/base
 MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 
-RUN apt-get update
-RUN apt-get -y dist-upgrade
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get -y install tmux irssi emacs python python-pip curl
+RUN apt-get -y install tmux irssi emacs python python-pip curl vim git
 
-RUN pip install virtualenv virtualenv-wrapper
+RUN pip install virtualenv virtualenvwrapper
 
-RUN curl -L http://git.io/epre | sh
-
-CMD tmux
+ADD local.sh /local.sh
