@@ -5,7 +5,7 @@ MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get -y install tmux irssi irssi-scripts emacs python python-pip curl vim git
+RUN apt-get install -y tmux irssi irssi-scripts emacs python python-pip curl vim git aspell
 
 RUN pip install virtualenv virtualenvwrapper
 
