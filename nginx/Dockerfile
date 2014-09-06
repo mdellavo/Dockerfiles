@@ -1,19 +1,16 @@
 # nginx Dockerfile
 
-FROM ubuntu:14.04
+FROM mdellavo/base
 MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 
-RUN add-apt-repository -y ppa:nginx/stable
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update
-RUN apt-get -y dist-upgrade
-
+RUN apt-get -y install software-properties-common
+RUN apt-add-repository -y ppa:nginx/stable
 RUN apt-get -y install nginx
 
 RUN rm -v /etc/nginx/nginx.conf
-ADD nginx.conf /etc/nginx/
-
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+ADD configs/nginx.conf /etc/nginx/
 
 EXPOSE 80
 

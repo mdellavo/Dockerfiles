@@ -5,7 +5,7 @@ set -x
 USER=marc
 PASSWORD=`pwgen -1`
 
-useradd -m "${USER}" -p `mkpasswd ${PASSWORD}`
+useradd -m "${USER}" -p `mkpasswd ${PASSWORD}` -s /bin/bash
 usermod -G sudo "${USER}"
 echo "User: ${USER} / Password: ${PASSWORD}"
 
