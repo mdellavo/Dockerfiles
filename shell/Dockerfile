@@ -5,9 +5,10 @@ MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get install -y tmux irssi irssi-scripts emacs python python-pip curl vim git aspell
+EXPOSE 22
+
+RUN apt-get install -y openssh-server tmux irssi irssi-scripts emacs python python-pip curl vim git aspell pwgen
 
 RUN pip install virtualenv virtualenvwrapper
 
-ADD shell.sh /start.d/shell
-RUN chmod +x /start.d/shell
+CMD ["/bin/bash", "/start.sh"]

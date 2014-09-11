@@ -6,6 +6,8 @@ MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN useradd -ms /bin/bash -G sudo marc
+
 RUN apt-get -y install xpra xdm fluxbox xvfb pwgen xserver-xephyr vim
 
 # Configuring xdm to allow connections from any IP address and ssh to allow X11 Forwarding.
