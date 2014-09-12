@@ -12,9 +12,6 @@ echo "User: ${USER} / Password: ${PASSWORD}"
 echo "Run parts"
 run-parts -v /start.d/
 
-echo "Starting Tmux"
-sudo -u marc -H bash -c "tmux new -d"
-
 echo "Starting ssh..."
 mkdir /var/run/sshd
 

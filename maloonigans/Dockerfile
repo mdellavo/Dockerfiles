@@ -19,3 +19,5 @@ ADD settings.ini /maloonigans/
 ADD recordings /maloonigans/recordings
 
 USER marc
+
+RUN apt-get clean

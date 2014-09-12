@@ -10,5 +10,8 @@ RUN sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 RUN apt-get update
 RUN apt-get dist-upgrade -y
+RUN apt-get -f install --fix-missing
+RUN apt-get update
 
-RUN apt-get install -y sudo whois debianutils software-properties-common ntp
+RUN apt-get install -y sudo whois debianutils software-properties-common
+RUN apt-get clean

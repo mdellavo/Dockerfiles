@@ -1,14 +1,12 @@
 # remote x11 desktop  Dockerfile
 # based off https://github.com/rogaha/docker-desktop/blob/master/Dockerfile
 
-FROM mdellavo/base
+FROM mdellavo/shell
 MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN useradd -ms /bin/bash -G sudo marc
-
-RUN apt-get -y install xpra xdm fluxbox xvfb pwgen xserver-xephyr vim
+RUN apt-get install -y xpra xdm fluxbox xvfb pwgen xserver-xephyr vim xterm
 
 # Configuring xdm to allow connections from any IP address and ssh to allow X11 Forwarding.
 RUN sed -i 's/DisplayManager.requestPort/!DisplayManager.requestPort/g' /etc/X11/xdm/xdm-config
