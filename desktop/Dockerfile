@@ -6,7 +6,9 @@ MAINTAINER Marc DellaVolpe "marc.dellavolpe@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get install -y xpra xdm fluxbox xvfb pwgen xserver-xephyr vim xterm
+RUN apt-get install -y xpra xdm fluxbox xvfb pwgen xserver-xephyr vim xterm firefox
+RUN apt-get clean
+
 
 # Configuring xdm to allow connections from any IP address and ssh to allow X11 Forwarding.
 RUN sed -i 's/DisplayManager.requestPort/!DisplayManager.requestPort/g' /etc/X11/xdm/xdm-config
